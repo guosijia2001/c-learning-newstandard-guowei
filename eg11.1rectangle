@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+class CRectangle
+{
+    public://一个问题，不打public就不能访问***
+    int w, h;
+    void Init(int w_, int h_ );
+    int area();
+    int perimeter();
+};
+
+//void CRectangle::Init() 要和类里面的函数匹配，而且参数列表还要写上变量类型和名字
+void CRectangle::Init(int w_, int h_)
+{
+    w = w_;
+    h = h_;
+}
+
+int CRectangle::area()
+{
+    return w * h;
+}
+
+int CRectangle::perimeter()
+{
+    return 2 * (w + h);
+}
+
+//int main()
+//{
+    //cin >>w>>h;
+    //int area = area, perimeter = perimeter;
+    //CRectangle A;
+    //cout << area << endl << perimeter << endl;
+    //return 0;
+//}
+//上面的错误有很多
+//首先注意cin和cout箭头
+//其次就是注意定义变量
+//再就是使用函数的时候说明对象
+//以下是正确的代码
+
+int main()
+{
+    int w, h;
+    CRectangle r;
+    cin >>w>>h;
+    r.Init(w, h);
+    cout<<"the area of the rectangle is "<<r.area()<<endl;
+    cout<<"the perimeter of the rectangle is "<<r.perimeter()<<endl;
+    cout<<sizeof(CRectangle)<<endl;
+    return 0;
